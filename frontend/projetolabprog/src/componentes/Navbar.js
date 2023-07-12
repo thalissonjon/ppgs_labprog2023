@@ -17,11 +17,12 @@ export default function Navbar() {
                   <a href="/#/home" className="nav-link">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a href="/#/docente" className="nav-link">Docentes</a>
+                  <a href="/#/docente" className="nav-link">Docentes</a> 
                 </li>
               </ul>
             </div>
           </div>
         </nav>        
     );
+    
 }
