@@ -15,11 +15,6 @@ import Navbar from './componentes/Navbar';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className="hold-transition sidebar-mini layout-fixed">
-          <div className="wrapper">
-              <Navbar />
-          </div>
-        </div>
     <Rotas />
   </React.StrictMode>
 );

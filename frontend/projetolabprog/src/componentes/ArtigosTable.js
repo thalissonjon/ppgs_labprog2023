@@ -11,7 +11,7 @@ const dados = [
 
 ]
 
-export default function OrientacaoTable() {
+export default function ArtigosTable() {
   const tableRef = useRef(null);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function OrientacaoTable() {
   return (
     <div className="card">
       <div className="card-header">
-        <h3 className="card-title">Orientações</h3>
+        <h3 className="card-title">Artigos</h3>
       </div>
       <div className="card-body">
         <table ref={tableRef} className="table table-bordered table-striped">

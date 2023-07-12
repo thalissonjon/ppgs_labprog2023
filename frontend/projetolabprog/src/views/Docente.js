@@ -10,6 +10,7 @@ import Indicadores from "../componentes/Indicadores";
 import GraficoProducaoCongresso from "../componentes/GraficoProducaoCongresso";
 import GraficoProducaoPeriodico from "../componentes/GraficoProducaoPeriodico";
 import Table from "../componentes/Table";
+import Navbar from "../componentes/Navbar";
 
 
 export default function Docente () {
@@ -20,11 +21,9 @@ export default function Docente () {
 
     return (
         <div className="wrapper">                
-         
-            
+            <Navbar />
             <div className="content-wrapper">
-                <Header titulo="Docente" />
-                {/*<!-- Main content -->*/}
+                <Header titulo="Docentes" />
                 <div className="content">      
                 <div className="container">
                     <div className="container-fluid">
@@ -33,18 +32,9 @@ export default function Docente () {
                     <GraficoProducaoCongresso />
                     <OrientacaoTable />
                     <ArtigosTable />
-
-
-                       
-
-                      
-
-    
                     </div>
                 </div>
                 </div>
-            
-            
             </div>
         </div> 
     );

@@ -40,14 +40,14 @@ export default function OrientacaoTable() {
             <td>{i.B2}</td>
             <td>{i.B3}</td>
             <td>{i.B4}</td>
-            <td> <a href="docente.html">Mais</a> </td>
+            <td> <a href="/#/programa">Mais</a> </td>
     </tr>
   ));
 
   return (
     <div className="card">
       <div className="card-header">
-        <h3 className="card-title">Orientações</h3>
+        <h3 className="card-title">Docentes</h3>
       </div>
       <div className="card-body">
         <table ref={tableRef} className="table table-bordered table-striped">

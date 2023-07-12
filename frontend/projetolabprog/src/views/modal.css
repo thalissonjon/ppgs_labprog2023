@@ -1,0 +1,24 @@
+
+
+.Modal{
+
+}
+
+#to-do-form input{
+  background-color: rgb(27, 115, 153);
+  border: 0;
+  padding: 0 20px;
+  margin: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+#to-do-form input::placeholder{
+  color: rgba(255,255,255,0.5)
+}
+
+#to-do-form input:focus,#to-do-form button:focus{
+  outline: none;
+}
+
