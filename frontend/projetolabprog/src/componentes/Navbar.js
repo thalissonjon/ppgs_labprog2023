@@ -2,7 +2,7 @@ export default function Navbar() {
     return (
         <nav className="main-header navbar navbar-expand-md navbar-light navbar-white">
           <div className="container">
-            <a href="home.html" className="navbar-brand">
+            <a href="/#/home" className="navbar-brand">
               <span className="brand-text font-weight-light">SPPG</span>
             </a>
       
@@ -14,10 +14,10 @@ export default function Navbar() {
               
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a href="home.html" className="nav-link">Programas</a>
+                  <a href="/#/home" className="nav-link">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a href="docente.html" className="nav-link">Docentes</a>
+                  <a href="/#/docente" className="nav-link">Docentes</a>
                 </li>
               </ul>
             </div>

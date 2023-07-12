@@ -4,12 +4,10 @@ import {Helmet} from 'react-helmet'
 
 import Filtros from "../componentes/Filtros";
 import Header from "../componentes/Header";
-import Navbar from "../componentes/Navbar";
+import ProducaoQualis from "../componentes/ProducaoQualis";
 import Indicadores from "../componentes/Indicadores";
-import GraficoProducao from "../componentes/GraficoProducao";
-import DocenteQualis from "../componentes/DocenteQualis";
 
-export default function Home () {
+export default function Docente () {
 
     useEffect( () =>
         document.body.classList.add('hold-transition', 'layout-top-nav')    
@@ -17,22 +15,20 @@ export default function Home () {
 
     return (
         <div className="wrapper">                
-        
+         
             
             <div className="content-wrapper">
-                <Header titulo="Home" />
+                <Header titulo="Programa" />
                 {/*<!-- Main content -->*/}
                 <div className="content">      
                 <div className="container">
                     <div className="container-fluid">
-                        <Filtros />
+                    <Indicadores />
+                    <ProducaoQualis />
 
-                        <Indicadores />
+                       
 
-                        <GraficoProducao titulo="Produção vs Qualis" />
-
-                        <DocenteQualis />
-
+                      
 
     
                     </div>
