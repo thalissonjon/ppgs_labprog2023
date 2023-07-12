@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Programa from './views/Home';
+import Programa from './views/Producao';
 
 import './admin-lte/plugins/fontawesome-free/css/all.min.css';
 import './admin-lte/dist/css/adminlte.min.css';
