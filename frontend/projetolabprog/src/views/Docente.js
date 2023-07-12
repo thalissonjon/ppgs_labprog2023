@@ -33,7 +33,7 @@ export default function Docente () {
                     <GraficoProducaoCongresso />
                     <OrientacaoTable />
                     <ArtigosTable />
-                    <Table />
+
 
                        
 

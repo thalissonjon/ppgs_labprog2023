@@ -1,12 +1,37 @@
+import React, { useEffect, useRef } from 'react';
+import $ from 'jquery';
+import 'datatables.net';
+
 const dados = [
-    {docente: 'Alexandre César Muniz de Oliveira', A1:1, A2:0, A3:1, A4:0, B1:2, B2:0, B3:0, B4:0}
+  {docente: 'Alexandre César Muniz de Oliveira', A1:1, A2:0, A3:1, A4:0, B1:2, B2:0, B3:0, B4:0}
 ]
 
+export default function OrientacaoTable() {
+  const tableRef = useRef(null);
 
-export default function DocenteQualis() {
-    const linhas = dados.map (i =>
-        <tr>
-            <td>{i.docente}</td>
+  useEffect(() => {
+    const dataTable = $(tableRef.current).DataTable({
+      searching: true, 
+      paging: false,
+      lengthChange: false,
+      autoWidth: false,
+      bDestroy: true,
+      language: {
+    
+        search: 'Pesquisar: ',
+        searchPlaceholder: 'Digite aqui para pesquisar...'
+      }
+    });
+
+    // remover funçao padrao no cabeçalho
+    $('.dataTables_filter input').unbind().bind('keyup', function () {
+      dataTable.search(this.value).draw();
+    });
+  }, []);
+
+  const linhas = dados.map((i) => (
+    <tr key={i.docente}>
+      <td>{i.docente}</td>
             <td>{i.A1}</td>
             <td>{i.A2}</td>
             <td>{i.A3}</td>
@@ -16,20 +41,19 @@ export default function DocenteQualis() {
             <td>{i.B3}</td>
             <td>{i.B4}</td>
             <td> <a href="docente.html">Mais</a> </td>
-        </tr>
-        )
+    </tr>
+  ));
 
-    return (
-            <div className="card">
-              <div className="card-header">
-                <h3 className="card-title">Docentes</h3>
-              </div>
-              
-              <div className="card-body">
-                <table id="example1" className="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Docente</th>
+  return (
+    <div className="card">
+      <div className="card-header">
+        <h3 className="card-title">Orientações</h3>
+      </div>
+      <div className="card-body">
+        <table ref={tableRef} className="table table-bordered table-striped">
+          <thead>
+            <tr>
+            <th>Docente</th>
                     <th>A1</th>
                     <th>A2</th>
                     <th>A3</th>
@@ -39,16 +63,12 @@ export default function DocenteQualis() {
                     <th>B3</th>
                     <th>B4</th>
                     <th>Detalhar</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  
-                    {linhas}
-
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Docente</th>
+            </tr>
+          </thead>
+          <tbody>{linhas}</tbody>
+          <tfoot>
+            <tr>
+            <th>Docente</th>
                     <th>A1</th>
                     <th>A2</th>
                     <th>A3</th>
@@ -58,10 +78,10 @@ export default function DocenteQualis() {
                     <th>B3</th>
                     <th>B4</th>
                     <th>Detalhar</th>
-                  </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>  
-    );
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  );
 }
