@@ -6,7 +6,6 @@ import Inicio from '../views/inicio'
 import Programa from '../views/programa'
 import Producao from '../views/Producao'
 import Login from '../componentes/login/Login';
-import Dashboard from '../componentes/login/Dashboard';
 
 export default function Rotas() {
     const [token, setToken] = useState();
@@ -18,8 +17,7 @@ export default function Rotas() {
     return (
         <HashRouter>
             <Routes>
-                <Route path="/inicio" element={<Inicio/>} />
-                <Route path="/programa" element={<Programa/>} />
+                <Route path="/" element={<Programa/>} />
                 <Route path="/docente" element={<Docente/>} /> 
                 <Route path="/producao" element={<Producao/>} />        
             </Routes>
