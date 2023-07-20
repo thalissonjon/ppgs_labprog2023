@@ -1,7 +1,6 @@
 package br.ufma.sppg.service.loader;
 
-import java.io.File;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class ImportadorService {
     List<Qualis> eventos;  //caso especial
 
     //TODO: importa novos caras, mas não está sincronizando diferenças nos dados
-    public List<String> importadorEmMassa(String defFolder){
+    /*public List<String> importadorEmMassa(String defFolder){
         File dir = new File(defFolder);
         File[] files = dir.listFiles((dir1, name) -> name.endsWith(".xml"));
         String identificador[];
@@ -106,7 +105,7 @@ public class ImportadorService {
             
         }        
         repoDoc.save(base);        
-    }
+    }*/
 
     private void associarQualis(Producao prod) {
         Qualis temp;

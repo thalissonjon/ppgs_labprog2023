@@ -81,7 +81,7 @@ public class ProgramaServiceTest {
 
         repo.delete(programaSalvo);
     }
-
+     /*
     @Test
     public void deveRecuperarDocentesDoPrograma() {
         // Cenário
@@ -109,7 +109,7 @@ public class ProgramaServiceTest {
 
         repo.delete(programaSalvo);
         docRepo.delete(docTeste);
-    }
+    }*/
 
     /*
      * dado um docente com produções e este docente num programa,

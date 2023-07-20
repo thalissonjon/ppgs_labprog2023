@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +36,7 @@ public class QualisController {
      * tratativa de exceções
      */
     @GetMapping(value = "/indice/{idProg}")
-    public ResponseEntity obterIndicesCapes(@PathVariable Integer idProg) {
+    public ResponseEntity<?> obterIndicesCapes(@PathVariable Integer idProg) {
 
         Indice indice;
         List<Producao> producoes;
@@ -55,7 +54,7 @@ public class QualisController {
 
     // PASSA O ANO
     @GetMapping(value = "/indice/{idProg}/filter")
-    public ResponseEntity obterIndicesCapes(@PathVariable Integer idProg, @RequestParam Integer anoIni,
+    public ResponseEntity<?> obterIndicesCapes(@PathVariable Integer idProg, @RequestParam Integer anoIni,
             @RequestParam Integer anoFim) {
 
         Indice indice;
@@ -74,7 +73,7 @@ public class QualisController {
 
     // NÃO PASSA O ANO
     @GetMapping(value = "/{idProg}/{tipo}")
-    public ResponseEntity obterQualisPorTipo(@PathVariable Integer idProg, @PathVariable String tipo) {
+    public ResponseEntity<?> obterQualisPorTipo(@PathVariable Integer idProg, @PathVariable String tipo) {
 
         QualisSummaryDTO summary = QualisSummaryDTO.builder().qtd(0).build();
 
@@ -99,7 +98,7 @@ public class QualisController {
 
     // PASSA O ANO
     @GetMapping(value = "/{idProg}/{tipo}/filter")
-    public ResponseEntity obterQualisPorTipo(@PathVariable Integer idProg, @PathVariable String tipo,
+    public ResponseEntity<?> obterQualisPorTipo(@PathVariable Integer idProg, @PathVariable String tipo,
             @RequestParam Integer anoIni, @RequestParam Integer anoFim) {
 
         QualisSummaryDTO summary = QualisSummaryDTO.builder().qtd(0).build();
@@ -125,7 +124,7 @@ public class QualisController {
 
     // PASSA O ANO
     @GetMapping(value = "/stats/{idProg}/filter")
-    public ResponseEntity obterEstatisticas(@PathVariable Integer idProg, @RequestParam Integer anoIni,
+    public ResponseEntity<?> obterEstatisticas(@PathVariable Integer idProg, @RequestParam Integer anoIni,
             @RequestParam Integer anoFim) {
 
         QualisStatsDTO stats;
@@ -146,7 +145,7 @@ public class QualisController {
 
     // NÃO PASSA O ANO
     @GetMapping(value = "/stats/{idProg}")
-    public ResponseEntity obterEstatisticas(@PathVariable Integer idProg) {
+    public ResponseEntity<?> obterEstatisticas(@PathVariable Integer idProg) {
 
         QualisStatsDTO stats;
 

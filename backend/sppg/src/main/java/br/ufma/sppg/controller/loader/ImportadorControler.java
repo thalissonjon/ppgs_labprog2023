@@ -16,7 +16,7 @@ public class ImportadorControler {
     @Autowired
 	ImportadorService imp;
 		
-    @GetMapping
+    /*@GetMapping
     public ResponseEntity init() {
         try { 
             //TODO: mudar forma de passar repositório para web...
@@ -26,7 +26,7 @@ public class ImportadorControler {
         catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-	}
+	}*/
 
 
 }

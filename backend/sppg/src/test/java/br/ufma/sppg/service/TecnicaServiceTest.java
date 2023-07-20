@@ -1,7 +1,5 @@
 package br.ufma.sppg.service;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

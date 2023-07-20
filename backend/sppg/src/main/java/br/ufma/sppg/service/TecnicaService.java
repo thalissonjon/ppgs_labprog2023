@@ -9,14 +9,8 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Service;
 
-import br.ufma.sppg.model.Docente;
-import br.ufma.sppg.model.Orientacao;
-import br.ufma.sppg.model.Programa;
-import br.ufma.sppg.model.Tecnica;
-import br.ufma.sppg.repo.DocenteRepository;
-import br.ufma.sppg.repo.OrientacaoRepository;
-import br.ufma.sppg.repo.ProgramaRepository;
-import br.ufma.sppg.repo.TecnicaRepository;
+import br.ufma.sppg.model.*;
+import br.ufma.sppg.repo.*;
 import br.ufma.sppg.service.exceptions.ServicoRuntimeException;
 import jakarta.transaction.Transactional;
 
@@ -34,6 +28,25 @@ public class TecnicaService {
 
     @Autowired
     OrientacaoRepository orientacaoRepo;
+
+    @Transactional
+    public Tecnica addOrientacoes(List<Integer> idsOrientacoes, Integer idTecnica){
+        Tecnica tecnica = tecnicaRepo.findById(idTecnica).get();
+        for(Integer id : idsOrientacoes){
+            Orientacao orientacao = orientacaoRepo.findById(id).get();
+            tecnica.getOrientacoes().add(orientacao);
+        }        
+        return tecnicaRepo.save(tecnica);
+    }
+
+    @Transactional
+    public Tecnica attEstatisticas(Integer qtdGraduado, Integer qtdMestrado, Integer qtdDoutorado, Integer idTecnica){
+        Tecnica tecnica = tecnicaRepo.findById(idTecnica).get();
+        tecnica.setQtdGrad(tecnica.getQtdGrad() + qtdGraduado);
+        tecnica.setQtdMestrado(tecnica.getQtdMestrado() + qtdMestrado);
+        tecnica.setQtdDoutorado(tecnica.getQtdDoutorado() + qtdDoutorado);
+        return tecnicaRepo.save(tecnica);
+    }
 
     // Salva uma técnica
     @Transactional

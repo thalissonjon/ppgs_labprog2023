@@ -1,6 +1,7 @@
 package br.ufma.sppg.repo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,7 +14,7 @@ public interface ProgramaRepository
         List<Programa> findByNome(String nomePPG);
 
         @Query("select p.docentes from Programa p where p.id = :idPPG")
-        List<Docente> obterDocentes(@Param("idPPG") Integer idPPG);
+        Optional<List<Docente>> obterDocentes(@Param("idPPG") Integer idPPG);
 
         @Query("select count(o) from Orientacao o join o.orientador d join d.programas p" + 
                " where (p.id = :idPrograma and o.ano >= :anoIni and o.ano <= :anoFin and o.producoes is not empty)")
@@ -22,6 +23,15 @@ public interface ProgramaRepository
         @Query("select count(o) from Orientacao o join o.orientador d join d.programas p" + 
         " where (p.id = :idPrograma and o.ano >= :anoIni and o.ano <= :anoFin and o.tecnicas is not empty)")
         Integer quantitatioOrientacaoTecnica(@Param("idPrograma") Integer idPrograma, @Param("anoIni") Integer anoIni, @Param("anoFin") Integer anoFin);
+
+        @Query("SELECT p FROM Programa p")
+        Optional<List<Programa>> obterProgramas();
+
+        @Query("SELECT prod FROM Programa p JOIN p.docentes d JOIN d.producoes prod WHERE p.id = :idPrograma AND prod.ano >= :anoIni AND prod.ano<= :anoFin")
+        Optional<List<Producao>> obterProducoes(@Param("idPrograma") Integer idPrograma, @Param("anoIni") Integer anoIni, @Param("anoFin") Integer anoFin);
+
+
+
 }
 /*
 spring.datasource.url=jdbc:postgresql://hckvzauf:Q44izx1iP5Q4pW4dv5UGBU1lIQpKYtrE@horton.db.elephantsql.com/hckvzauf
